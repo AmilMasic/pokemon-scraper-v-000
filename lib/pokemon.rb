@@ -1,8 +1,8 @@
 class Pokemon
   @@all = []
-  attr_accessor :id, :name, :type, :db
+  attr_accessor :id, :name, :type, :db, :hp
 
-  def initialize(id:, name:, type:, db:)
+  def initialize(id:, name:, type:, db:, hp: nil)
     @@all << self
   end
 
@@ -14,10 +14,9 @@ class Pokemon
     db.execute("INSERT INTO pokemon (name, type) VALUES (?, ?)", name, type)
   end
 
-  # def self.find (id, db)
-  #   @@all.each do |pokemon|
-  #     id = pokemon.id
-  #   end
+  def self.find (id, db)
+
+  end
 
   end
 # end

@@ -19,14 +19,10 @@ class Pokemon
   #   Pokemon.new(id: pokemon[0], name: pokemon[1], type: pokemon[2], hp: pokemon[3], db: db)
   # end
 
-  def self.find(id, db)
-      pokemon = db.execute("SELECT * FROM pokemon WHERE id = ?", id).flatten
-      name = pokemon[1]
-      type = pokemon[2]
-      hp = pokemon[3]
-
-       pokemon_inst = Pokemon.new(id: id, name: name, type: type, hp: hp, db: db)
-    end
+  def self.find(id_num, db)
+    pokemon_info = db.execute("SELECT * FROM pokemon WHERE id=?", id_num).first
+    Pokemon.new(pokemon_info, db)
+  end
 
   end
 # end
